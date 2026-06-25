@@ -1,0 +1,131 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: luci-app-hp-lite 6.0-r2\n"
+"PO-Revision-Date: 2026-06-24 00:00+0000\n"
+"Last-Translator: zyh <1540187368@qq.com>\n"
+"Language-Team: Chinese (Simplified Han script)\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Client Configuration"
+msgstr "客户端配置"
+
+msgid "Runtime Log"
+msgstr "运行日志"
+
+msgid "hp-lite Client"
+msgstr "hp-lite 客户端"
+
+msgid "hp-lite.cannot_read_log_file"
+msgstr "无法读取日志文件。"
+
+msgid "hp-lite.choose_file"
+msgstr "选择文件"
+
+msgid "hp-lite.choose_file_first"
+msgstr "请先选择文件。"
+
+msgid "hp-lite.clear_log"
+msgstr "清除日志"
+
+msgid "hp-lite.client"
+msgstr "hp-lite 客户端"
+
+msgid "hp-lite.client_configuration"
+msgstr "客户端配置"
+
+msgid "hp-lite.connection_code"
+msgstr "连接码"
+
+msgid "hp-lite.connection_code_placeholder"
+msgstr "连接码"
+
+msgid "hp-lite.credit_text"
+msgstr "此客户端由 HTU 的 zhangyahao 制作。"
+
+msgid "hp-lite.download_failed"
+msgstr "下载失败"
+
+msgid "hp-lite.downloaded_and_installed_successfully"
+msgstr "下载并安装成功"
+
+msgid "hp-lite.general_settings"
+msgstr "常规设置"
+
+msgid "hp-lite.install_status"
+msgstr "安装状态"
+
+msgid "hp-lite.install_upgrade"
+msgstr "安装hp-lite"
+
+msgid "hp-lite.installed"
+msgstr "已安装"
+
+msgid "hp-lite.loading_log"
+msgstr "正在加载日志..."
+
+msgid "hp-lite.local_upload"
+msgstr "本地上传"
+
+msgid "hp-lite.log_empty"
+msgstr "日志为空。"
+
+msgid "hp-lite.log_retention_days"
+msgstr "日志保留天数"
+
+msgid "hp-lite.no_file_chosen"
+msgstr "未选择文件"
+
+msgid "hp-lite.not_installed"
+msgstr "未安装"
+
+msgid "hp-lite.refresh_interval"
+msgstr "每 %s 秒刷新。"
+
+msgid "hp-lite.remote_download"
+msgstr "远程下载"
+
+msgid "hp-lite.remove_installed"
+msgstr "移除安装"
+
+msgid "hp-lite.removed_successfully"
+msgstr "移除安装成功"
+
+msgid "hp-lite.running"
+msgstr "运行中"
+
+msgid "hp-lite.running_status"
+msgstr "运行状态"
+
+msgid "hp-lite.runtime_log"
+msgstr "运行日志"
+
+msgid "hp-lite.start_service"
+msgstr "启动服务"
+
+msgid "hp-lite.stop_service"
+msgstr "停止服务"
+
+msgid "hp-lite.stopped"
+msgstr "已停止"
+
+msgid "hp-lite.system_architecture"
+msgstr "系统架构"
+
+msgid "hp-lite.upload_failed"
+msgstr "上传失败"
+
+msgid "hp-lite.upload_request_failed"
+msgstr "上传请求失败"
+
+msgid "hp-lite.uploaded_and_installed_successfully"
+msgstr "上传并安装成功"
+
+msgid "hp-lite.uploading"
+msgstr "正在上传..."
+
+msgid "hp-lite.version_label"
+msgstr "版本："

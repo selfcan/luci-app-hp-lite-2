@@ -1,0 +1,129 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: luci-app-hp-lite 6.0-r2\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Client Configuration"
+msgstr ""
+
+msgid "Runtime Log"
+msgstr ""
+
+msgid "hp-lite Client"
+msgstr ""
+
+msgid "hp-lite.cannot_read_log_file"
+msgstr ""
+
+msgid "hp-lite.choose_file"
+msgstr ""
+
+msgid "hp-lite.choose_file_first"
+msgstr ""
+
+msgid "hp-lite.clear_log"
+msgstr ""
+
+msgid "hp-lite.client"
+msgstr ""
+
+msgid "hp-lite.client_configuration"
+msgstr ""
+
+msgid "hp-lite.connection_code"
+msgstr ""
+
+msgid "hp-lite.connection_code_placeholder"
+msgstr ""
+
+msgid "hp-lite.credit_text"
+msgstr ""
+
+msgid "hp-lite.download_failed"
+msgstr ""
+
+msgid "hp-lite.downloaded_and_installed_successfully"
+msgstr ""
+
+msgid "hp-lite.general_settings"
+msgstr ""
+
+msgid "hp-lite.install_status"
+msgstr ""
+
+msgid "hp-lite.install_upgrade"
+msgstr ""
+
+msgid "hp-lite.installed"
+msgstr ""
+
+msgid "hp-lite.loading_log"
+msgstr ""
+
+msgid "hp-lite.local_upload"
+msgstr ""
+
+msgid "hp-lite.log_empty"
+msgstr ""
+
+msgid "hp-lite.log_retention_days"
+msgstr ""
+
+msgid "hp-lite.no_file_chosen"
+msgstr ""
+
+msgid "hp-lite.not_installed"
+msgstr ""
+
+msgid "hp-lite.refresh_interval"
+msgstr ""
+
+msgid "hp-lite.remote_download"
+msgstr ""
+
+msgid "hp-lite.remove_installed"
+msgstr ""
+
+msgid "hp-lite.removed_successfully"
+msgstr ""
+
+msgid "hp-lite.running"
+msgstr ""
+
+msgid "hp-lite.running_status"
+msgstr ""
+
+msgid "hp-lite.runtime_log"
+msgstr ""
+
+msgid "hp-lite.start_service"
+msgstr ""
+
+msgid "hp-lite.stop_service"
+msgstr ""
+
+msgid "hp-lite.stopped"
+msgstr ""
+
+msgid "hp-lite.system_architecture"
+msgstr ""
+
+msgid "hp-lite.upload_failed"
+msgstr ""
+
+msgid "hp-lite.upload_request_failed"
+msgstr ""
+
+msgid "hp-lite.uploaded_and_installed_successfully"
+msgstr ""
+
+msgid "hp-lite.uploading"
+msgstr ""
+
+msgid "hp-lite.version_label"
+msgstr ""

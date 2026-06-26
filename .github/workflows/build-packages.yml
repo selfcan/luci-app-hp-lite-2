@@ -93,8 +93,33 @@ jobs:
         run: |
           mkdir -p "release/${{ matrix.name }}"
 
+          PKG_VERSION="$(grep -oE 'PKG_VERSION:=[^[:space:]]+' Makefile | head -n 1 | cut -d '=' -f 2)"
+          PKG_RELEASE="$(grep -oE 'PKG_RELEASE:=[^[:space:]]+' Makefile | head -n 1 | cut -d '=' -f 2)"
+
+          if [ -z "${PKG_VERSION}" ]; then
+            exit 1
+          fi
+
+          if [ -z "${PKG_RELEASE}" ]; then
+            PKG_RELEASE="1"
+          fi
+
+          PKG_SUFFIX="${PKG_VERSION}-r${PKG_RELEASE}"
+
           find "${SDK_DIR}/bin/packages" -type f -name '*hp-lite*.${{ matrix.package_ext }}' | while read -r FILE; do
             BASENAME="$(basename "${FILE}")"
+
+            # apk 默认文件名类似：luci-app-hp-lite-1.0-r2.apk
+            # ipk 默认文件名类似：luci-app-hp-lite_1.0-r2_all.ipk
+            # 这里把 apk 改成与 ipk 完全同名，只保留后缀不同。
+            if [ "${{ matrix.package_ext }}" = "apk" ]; then
+              case "${BASENAME}" in
+                *-"${PKG_SUFFIX}".apk)
+                  BASENAME="${BASENAME%-${PKG_SUFFIX}.apk}_${PKG_SUFFIX}_all.apk"
+                  ;;
+              esac
+            fi
+
             cp -v "${FILE}" "release/${{ matrix.name }}/${BASENAME}"
           done
 
@@ -154,9 +179,6 @@ jobs:
             exit 1
           fi
 
-          cd release
-          sha256sum * > sha256sums.txt
-
       - name: Create or update GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -177,7 +199,6 @@ jobs:
           文件说明：
           - .ipk：OpenWrt 24.10.7 稳定版 opkg 系统
           - .apk：OpenWrt 25.12.4 稳定版 apk 系统
-          - sha256sums.txt：校验文件
           EOF
           )
 
@@ -199,7 +220,7 @@ jobs:
             fi
 
             gh release edit "${TAG}" --title "${TITLE}" --notes "${NOTES}" --latest
-            gh release upload "${TAG}" release/* --clobber
+            gh release upload "${TAG}" release/*.ipk release/*.apk --clobber
           else
-            gh release create "${TAG}" release/* --title "${TITLE}" --notes "${NOTES}" --latest --target "${GITHUB_SHA}"
+            gh release create "${TAG}" release/*.ipk release/*.apk --title "${TITLE}" --notes "${NOTES}" --latest --target "${GITHUB_SHA}"
           fi

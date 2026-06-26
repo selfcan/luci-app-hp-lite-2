@@ -21,11 +21,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: openwrt-24.10.5-x86-64
-            sdk_base_url: https://downloads.openwrt.org/releases/24.10.5/targets/x86/64
+          - name: openwrt-24.10.7-x86-64-ipk
+            sdk_base_url: https://downloads.openwrt.org/releases/24.10.7/targets/x86/64
+            package_ext: ipk
 
-          - name: openwrt-snapshot-x86-64
-            sdk_base_url: https://downloads.openwrt.org/snapshots/targets/x86/64
+          - name: openwrt-25.12.4-x86-64-apk
+            sdk_base_url: https://downloads.openwrt.org/releases/25.12.4/targets/x86/64
+            package_ext: apk
 
     steps:
       - name: Checkout package source
@@ -91,9 +93,9 @@ jobs:
         run: |
           mkdir -p "release/${{ matrix.name }}"
 
-          find "${SDK_DIR}/bin/packages" -type f \( -name '*hp-lite*.ipk' -o -name '*hp-lite*.apk' \) | while read -r FILE; do
+          find "${SDK_DIR}/bin/packages" -type f -name '*hp-lite*.${{ matrix.package_ext }}' | while read -r FILE; do
             BASENAME="$(basename "${FILE}")"
-            cp -v "${FILE}" "release/${{ matrix.name }}/${{ matrix.name }}-${BASENAME}"
+            cp -v "${FILE}" "release/${{ matrix.name }}/${BASENAME}"
           done
 
           if [ -z "$(find "release/${{ matrix.name }}" -type f)" ]; then
@@ -173,8 +175,8 @@ jobs:
           Workflow Run：${GITHUB_RUN_NUMBER}
 
           文件说明：
-          - .ipk：适合 opkg 系统
-          - .apk：适合 apk 系统
+          - .ipk：OpenWrt 24.10.7 稳定版 opkg 系统
+          - .apk：OpenWrt 25.12.4 稳定版 apk 系统
           - sha256sums.txt：校验文件
           EOF
           )

@@ -78,18 +78,13 @@ Download the prebuilt files from the latest release:
 
 https://github.com/liuyi-htu/luci-app-hp-lite/releases
 
-Copy the packages that match your router firmware package manager:
+Use the package format that matches your router firmware package manager. Newer apk-based firmware uses `.apk` files, while older opkg-based firmware uses `.ipk` files.
+
+### Install `.apk` Packages
 
 ```sh
 scp luci-app-hp-lite-6.0-r2.apk root@192.168.1.1:/tmp/
 scp luci-i18n-hp-lite-zh-cn-6.0-r2.apk root@192.168.1.1:/tmp/
-```
-
-or:
-
-```sh
-scp luci-app-hp-lite_6.0-r2_all.ipk root@192.168.1.1:/tmp/
-scp luci-i18n-hp-lite-zh-cn_6.0-r2_all.ipk root@192.168.1.1:/tmp/
 ```
 
 SSH into the router:
@@ -98,19 +93,44 @@ SSH into the router:
 ssh root@192.168.1.1
 ```
 
-Install `.apk` packages on apk-based firmware:
+Install the packages:
 
 ```sh
 apk add --allow-untrusted /tmp/luci-app-hp-lite-6.0-r2.apk
 apk add --allow-untrusted /tmp/luci-i18n-hp-lite-zh-cn-6.0-r2.apk
 ```
 
-Install `.ipk` packages on opkg-based firmware:
+### Install `.ipk` Packages
 
-```sh
-opkg install /tmp/luci-app-hp-lite_6.0-r2_all.ipk
-opkg install /tmp/luci-i18n-hp-lite-zh-cn_6.0-r2_all.ipk
-```
+Use this method on opkg-based OpenWrt firmware.
+
+1. Copy the `.ipk` packages to the router:
+
+   ```sh
+   scp luci-app-hp-lite_6.0-r2_all.ipk root@192.168.1.1:/tmp/
+   scp luci-i18n-hp-lite-zh-cn_6.0-r2_all.ipk root@192.168.1.1:/tmp/
+   ```
+
+2. SSH into the router:
+
+   ```sh
+   ssh root@192.168.1.1
+   ```
+
+3. Update the package index if the router can access the internet:
+
+   ```sh
+   opkg update
+   ```
+
+4. Install the packages:
+
+   ```sh
+   opkg install /tmp/luci-app-hp-lite_6.0-r2_all.ipk
+   opkg install /tmp/luci-i18n-hp-lite-zh-cn_6.0-r2_all.ipk
+   ```
+
+If `opkg` reports missing dependencies, install `luci-base` and `uci` from the firmware's matching OpenWrt package feed first, then run the two `opkg install` commands again. For fully offline routers, download dependency `.ipk` files from the same OpenWrt version and architecture as the firmware.
 
 Refresh LuCI caches and reload services if needed:
 

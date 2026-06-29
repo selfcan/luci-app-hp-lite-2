@@ -1,4 +1,0 @@
-
-config hp-lite 'global'
-	option connect_code ''
-	option log_retention_days '3'
